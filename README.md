@@ -12,7 +12,7 @@ This repository also includes example on running the MSSQL server and connecting
 # Usage
 Simply see [docker-compose.yml](docker-compose.yml) or [docker-compose.prod.yml](docker-compose.prod.yml) for examples on how to run this image.
 
-The development image simply comes with `log_errors = On` which logs php errors in the docker logs.
+The development image sets `log_errors = On` in `php.ini` which logs php errors in the docker logs.
 
 Don't forget to either update `MSSQL_SA_PASSWORD` environment variable manually in the docker-compose file or copy [.env.example](.env.example) into `.env` file in the same directory and change the password their. 
 
@@ -26,6 +26,10 @@ If you need a docker run command directly to quickly develop some project (make 
 ```shell
 docker run -p "8888:80" -v "${PWD}:/var/www/html" --platform linux/amd64 shamsmm/php-mssql-sqlsrv
 ```
+
+| ✅ Easy Development                                                                                                                                     | 
+|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| This is almost one-to-one to running `php -S localhost:8888` with the added bonus that all the drivers and modules are installed in a docker container |
 
 # Building
 To build this image locally on your device instead of pulling it from docker hub, simply run any of the following commands:
