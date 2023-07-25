@@ -1,20 +1,16 @@
 version: '3'
 services:
   php-mssql-sqlsrv:
-    image: shamsmm/php-mssql-sqlsrv
+    image: shamsmm/php-mssql-sqlsrv:prod
     platform: linux/amd64
     volumes:
       - ${PWD}:/var/www/html
-    ports:
-      - "8000:80"
     expose:
       - "80"
 
   mssql:
     image: mcr.microsoft.com/mssql/server:2022-latest
     platform: linux/amd64
-    ports:
-      - "1433:1433"
     expose:
       - "1433"
     environment:
